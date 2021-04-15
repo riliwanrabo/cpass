@@ -24,6 +24,7 @@ Route::get('/settings', [App\Http\Controllers\SettingController::class, 'index']
 Route::group(['prefix' => 'currency', 'as' => 'currency.'], function () {
     Route::get('/', [App\Http\Controllers\CurrencyController::class, 'index'])->name('index');
     Route::post('/', [App\Http\Controllers\CurrencyController::class, 'setBaseCurrency'])->name('setBase');
+    Route::post('/watchlist', [App\Http\Controllers\CurrencyController::class, 'setThreshold'])->name('setThreshold');
     Route::get('/rates/{symbol}', [App\Http\Controllers\CurrencyController::class, 'fetchRates'])->name('rates');
 });
 
